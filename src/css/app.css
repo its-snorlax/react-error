@@ -1,0 +1,7 @@
+.rectangle {
+    background-color: lightgrey;
+    width: 50%;
+    border: 10px solid green;
+    padding: 50px;
+    margin: auto;
+}
