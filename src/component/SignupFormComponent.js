@@ -1,8 +1,10 @@
 import React, {Component} from "react";
+import "../css/FormInput.css"
 
 export default class SignupFormComponent extends Component {
     state = {
-        name: "",
+        firstName: "",
+        lastName: "",
         password: "",
         email: "",
         contact: ""
@@ -15,9 +17,9 @@ export default class SignupFormComponent extends Component {
 
     onSubmit = (event) => {
         event.preventDefault()
-        let {name, password, email, contact} = this.state
+        let {firstName, lastName, password, email, contact} = this.state
         let body = {
-            'name': name,
+            'name': firstName + " " + lastName,
             'email': email,
             'password': password,
             'contact': contact
@@ -33,13 +35,27 @@ export default class SignupFormComponent extends Component {
 
     render() {
         return <div className="col-md-12">
+            <h2>Sign Up</h2>
+            <p><small>Please fill this form to create account!</small></p>
+            <hr/>
             <form className="from-prop">
                 <div className="form-group">
-                    <input name={"name"} onChange={this.onChange} className="form-control" placeholder="Name"/><br/>
-                    <input name={"email"} onChange={this.onChange} className="form-control" placeholder="Email"/><br/>
-                    <input name={"contact"} onChange={this.onChange} className="form-control"
+                    <div className="form-row ">
+                        <div className="col-md-6">
+                            <input name={"firstName"} onChange={this.onChange} className="form-control style "
+                                   placeholder="First Name"/>
+                        </div>
+                        <div className="col-md-6">
+                            <input name={"lastName"} onChange={this.onChange} className="form-control style "
+                                   placeholder="Last Name"/>
+                        </div>
+                    </div>
+                    <br/>
+                    <input name={"email"} onChange={this.onChange} className="form-control style"
+                           placeholder="Email"/><br/>
+                    <input name={"contact"} onChange={this.onChange} className="form-control style"
                            placeholder="Phone Number"/><br/>
-                    <input name={"password"} onChange={this.onChange} className="form-control" type="password"
+                    <input name={"password"} onChange={this.onChange} className="form-control style" type="password"
                            placeholder="Password"/><br/>
                     <button type={"submit"} onClick={this.onSubmit} className="btn btn-primary form-item">Submit
                     </button>
